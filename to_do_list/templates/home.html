@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title %} Home {% endblock %}</title>
-  </head>
-  <body>
-    <h1>Home page</h1>
-  </body>
-</html>
+<title>{% block title %} Home {% endblock %}</title>
+
+{% if all_items %}
+  <ul>
+
+     {% for items in all_items %}
+        <li> {{ items.item }} </li>
+
+     {% endfor %}
+  </ul>
+{% endif %}
+
 
 {% endblock %}
