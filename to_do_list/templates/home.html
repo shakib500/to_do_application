@@ -4,13 +4,27 @@
 <title>{% block title %} Home {% endblock %}</title>
 
 {% if all_items %}
-  <ul>
+<table class="table table-striped">
+  <!-- <thead class="thead-dark"> -->
 
-     {% for items in all_items %}
-        <li> {{ items.item }} </li>
+  {% for items in all_items %}
+    {% if items.completed %}
+      <tr class="table-success">
+        <th class="striker"><center> {{ items.item }} </center></th>
+        <th><center> {{ items.completed }} </center></th>
+        <th><center> Delete </center></th>
+      </tr>
+    {% else %}
+      <tr class="table-primary">
+        <th><center> {{ items.item }} </center></th>
+        <th><center> {{ items.completed }} </center></th>
+        <th><center> Delete </center></th>
+      </tr>
+      {% endif %}
+  <!-- </thead> -->
 
-     {% endfor %}
-  </ul>
+  {% endfor %}
+</table>
 {% endif %}
 
 
