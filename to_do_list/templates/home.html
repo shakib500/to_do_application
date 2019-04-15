@@ -3,6 +3,15 @@
 
 <title>{% block title %} Home {% endblock %}</title>
 
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+                {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
 {% if all_items %}
 <table class="table table-striped">
   <!-- <thead class="thead-dark"> -->
