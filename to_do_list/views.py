@@ -11,7 +11,7 @@ def home(request):
         if form.is_valid():
             form.save()
             all_items = List.objects.all
-            messages.success(request, ('New task has been added!'))
+            messages.success(request,'New task has been added!')
             return render(request,'home.html',{'all_items': all_items})
     else:
         all_items = List.objects.all
@@ -23,5 +23,5 @@ def about(request):
 def delete(request, list_id):
     item = List.objects.get(pk=list_id)
     item.delete()
-    messages.success(request, ('Task has been deleted!'))
+    messages.error(request,'Task has been deleted!')
     return redirect('home')
