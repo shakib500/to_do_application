@@ -21,13 +21,13 @@
       <tr class="table-success">
         <th class="striker"><center> {{ items.item }} </center></th>
         <th><center> {{ items.completed }} </center></th>
-        <th><center> Delete </center></th>
+        <th><center><a href="{% url 'delete' items.id %}">Delete</a></center></th>
       </tr>
     {% else %}
       <tr class="table-primary">
         <th><center> {{ items.item }} </center></th>
         <th><center> {{ items.completed }} </center></th>
-        <th><center> Delete </center></th>
+        <th><center><a href="{% url 'delete' items.id %}">Delete</a></center></th>
       </tr>
       {% endif %}
   <!-- </thead> -->

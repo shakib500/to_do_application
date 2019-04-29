@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import List
 from .forms import ListForm
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 def home(request):
     if request.method == 'POST':
@@ -18,3 +19,9 @@ def home(request):
 
 def about(request):
     return render(request,'about.html',{})
+
+def delete(request, list_id):
+    item = List.objects.get(pk=list_id)
+    item.delete()
+    messages.success(request, ('Task has been deleted!'))
+    return redirect('home')
