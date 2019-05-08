@@ -25,3 +25,9 @@ def delete(request, list_id):
     item.delete()
     messages.error(request,'Task has been deleted!')
     return redirect('home')
+
+def done(request,list_id):
+    item = List.objects.get(pk=list_id)
+    item.completed = True
+    item.save()
+    return redirect('home')
