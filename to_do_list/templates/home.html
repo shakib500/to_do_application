@@ -20,7 +20,7 @@
     {% if items.completed %}
       <tr class="table-success">
         <th class="striker"><center> {{ items.item }} </center></th>
-        <th><center>Pending</center></th>
+        <th><center><a href="{% url 'pending' items.id %}">Pending</a></center></th>
         <th><center><a href="{% url 'delete' items.id %}">Delete</a></center></th>
       </tr>
     {% else %}

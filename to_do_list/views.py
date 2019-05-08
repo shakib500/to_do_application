@@ -31,3 +31,9 @@ def done(request,list_id):
     item.completed = True
     item.save()
     return redirect('home')
+
+def pending(request,list_id):
+    item = List.objects.get(pk=list_id)
+    item.completed = False
+    item.save()
+    return redirect('home')
