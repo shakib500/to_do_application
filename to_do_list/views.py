@@ -49,4 +49,4 @@ def edit(request,list_id):
             return redirect('home')
     else:
         item = List.objects.get(pk=list_id)
-        return render(request,'edit.html',{'item': item})
+    return render(request,'edit.html',{'item': item})
