@@ -19,13 +19,13 @@
   {% for items in all_items %}
     {% if items.completed %}
       <tr class="table-success">
-        <th class="striker"><center> {{ items.item }} </center></th>
+        <th class="striker"><a href="{% url 'edit' items.id %}"><center> {{ items.item }} </center></a></th>
         <th><center><a href="{% url 'pending' items.id %}">Pending</a></center></th>
         <th><center><a href="{% url 'delete' items.id %}">Delete</a></center></th>
       </tr>
     {% else %}
       <tr class="table-primary">
-        <th><center> {{ items.item }} </center></th>
+        <th><center><a href="{% url 'edit' items.id %}"><center> {{ items.item }} </center></a></th>
         <th><center><a href="{% url 'done' items.id %}">Done</a></center></th>
         <th><center><a href="{% url 'delete' items.id %}">Delete</a></center></th>
       </tr>

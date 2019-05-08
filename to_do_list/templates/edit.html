@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+<title>{% block title %} To Do List | Edit Item {% endblock %}</title>
+
+{% block content %}
+
+ {% if item %}
+
+    <form class="form-inline my-2 my-lg-0" method="POST">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" name="item" value="{{ item.item }}" placeholder={{ item.item }} aria-label="Search" >
+      <input type="hidden" name="completed" value="{{ item.completed }}">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Edit Task</button>
+    </form>
+
+ {% endif %}
+
+
+{% endblock %}
